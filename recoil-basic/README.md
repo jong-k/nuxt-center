@@ -1,5 +1,9 @@
 # Recoil Basic
 
+## 0. 데모 앱
+- Todo list
+- 글자 수 세기
+
 ## 1. Recoil을 사용하는 이유
 
 Recoil 을 사용하는 이유는 단순함, 호환성 때문일 것이다. 그런데 단순함과 호환성 때문이라면 React 에 내장된 `Context API` 또는 `useReducer` 를 사용하면 되지 않을까??
