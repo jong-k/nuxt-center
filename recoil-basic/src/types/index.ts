@@ -4,3 +4,5 @@ declare interface TodoListItem {
   text: string;
   isDone: boolean;
 }
+
+declare type TodoListFilter = "Show All" | "Show Done" | "Show UnDone";

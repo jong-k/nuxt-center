@@ -1,10 +1,15 @@
 import { RecoilRoot } from "recoil";
-import CharacterCounter from "./components/CharacterCounter";
+// import CharacterCounter from "./components/CharacterCounter";
+import TodoItemCreator from "./components/TodoItemCreator";
+import TodoList from "./components/TodoList";
+import TodoListStats from "./components/TodoListStats";
 
 export default function App() {
   return (
     <RecoilRoot>
-      <CharacterCounter />
+      <TodoListStats />
+      <TodoItemCreator />
+      <TodoList />
     </RecoilRoot>
   );
 }
