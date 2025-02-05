@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img v-bind="imgAttributes" />
+    <img v-bind="imgAttributes" alt="nuxt logo" title="nuxt" />
   </div>
 </template>
 
@@ -10,5 +10,6 @@ const imgAttributes = ref({
   alt: "logo",
   width: 75,
   height: 75,
+  title: "nuxt logo",
 });
 </script>
