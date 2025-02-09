@@ -1,22 +1,26 @@
 <template>
-  <div class="4f" @click="handleClick">
-    <div class="3f" @click="handleClick">
-      <div class="2f" @click="handleClick">
-        <button
-          class="1f"
-          :style="{ padding: '10px', color: 'red' }"
-          @click="handleClick"
-        >
-          클릭
-        </button>
-      </div>
-    </div>
+  <div>
+    <h2>{{ msg }}</h2>
+    <input type="text" @keydown.enter="onEnterKey" />
+    <br />
+    <button @click.right="onRightButtonClick">마우스 우클릭</button>
+    <br />
+    <button @click.shift="onShiftClick">시프트 키를 누르면서 클릭</button>
+    <br />
   </div>
 </template>
 
 <script setup lang="ts">
-const handleClick = (e: MouseEvent) => {
-  console.log(e.currentTarget); // 버블링 단계에서 각 부모 요소
-  // console.log(e.target); // event 발생지 근원
+const msg = ref("시작 전");
+const onEnterKey = () => {
+  msg.value = "엔터 키가 입력되었습니다";
+};
+
+const onRightButtonClick = () => {
+  msg.value = "마우스 우클릭되었습니다";
+};
+
+const onShiftClick = () => {
+  msg.value = "시프트 키를 누르면서 클릭했습니다";
 };
 </script>
