@@ -1,15 +1,17 @@
 <template>
   <div>
-    <p>
-      점수는 {{ randomNumber }}점
-      <template v-if="randomNumber > 80">
-        으로 매우 우수합니다
-        <span style="color: red">대단해요!</span>
-      </template>
-    </p>
+    <div>
+      v-show 사용
+      <p v-show="showOrNot">조건이 부합하여 표시</p>
+    </div>
+    <div>
+      v-if 사용
+      <p v-if="showOrNot">조건이 부합하여 표시</p>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 const randomNumber = computed(() => Math.round(Math.random() * 100));
+const showOrNot = computed(() => randomNumber.value >= 80);
 </script>
