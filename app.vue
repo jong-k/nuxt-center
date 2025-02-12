@@ -1,17 +1,17 @@
 <template>
   <div>
-    <div>
-      v-show 사용
-      <p v-show="showOrNot">조건이 부합하여 표시</p>
-    </div>
-    <div>
-      v-if 사용
-      <p v-if="showOrNot">조건이 부합하여 표시</p>
-    </div>
+    <ul>
+      <li v-for="(val, key, idx) in cocktailRef" :key="val">
+        {{ idx + 1 }}: ID가 {{ key }}인 칵테일은 {{ val }}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script setup lang="ts">
-const randomNumber = computed(() => Math.round(Math.random() * 100));
-const showOrNot = computed(() => randomNumber.value >= 80);
+const cocktailRef = ref({
+  2345: "화이트 레이디",
+  4412: "블루 하와이",
+  6792: "뉴욕",
+});
 </script>
