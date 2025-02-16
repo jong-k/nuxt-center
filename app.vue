@@ -1,18 +1,17 @@
 <template>
-  <div>
-    <ul>
-      <li v-for="[id, cocktailName] in cocktailListRef" :key="id">
-        ID가 {{ id }}인 칵테일은 {{ cocktailName }}
-      </li>
-    </ul>
-  </div>
+  <dl>
+    <template v-for="(val, key, idx) in cocktailRef" :key="key">
+      <dt>{{ idx + 1 }}. {{ key }}</dt>
+      <dd>{{ val }}</dd>
+    </template>
+  </dl>
 </template>
 
 <script setup lang="ts">
-const cocktailList = new Map<number, string>();
-cocktailList.set(2345, "White Lady");
-cocktailList.set(4412, "Blue hawaii");
-cocktailList.set(6792, "New York");
-console.log(cocktailList);
-const cocktailListRef = ref(cocktailList);
+const cocktailRef = ref({
+  id: 2345,
+  name: "White Lady",
+  price: 1200,
+  recipe: "진 30ml + 쿠앵트로 15ml + 레몬과즙 15ml",
+});
 </script>
