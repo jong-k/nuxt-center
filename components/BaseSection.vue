@@ -10,10 +10,19 @@
 import type { Member } from "~/interfaces";
 import OneMember from "~/components/OneMember.vue";
 const memberList = inject("memberList") as Map<number, Member>;
+const memberListRef = inject<Ref<{ [key: number]: Member }>>("memberListRef", ref({}));
+// const totalPoints = computed(() => {
+//   let total = 0;
+//   // Map 객체의 값만 배열 형태로 순회하기 위해 values() 사용
+//   for (const member of memberList.values()) {
+//     total += member.points;
+//   }
+//   return total;
+// });
 const totalPoints = computed(() => {
   let total = 0;
   // Map 객체의 값만 배열 형태로 순회하기 위해 values() 사용
-  for (const member of memberList.values()) {
+  for (const member of Object.values(memberListRef.value)) {
     total += member.points;
   }
   return total;
