@@ -1,17 +1,7 @@
 <template>
-  <dl>
-    <template v-for="(val, key, idx) in cocktailRef" :key="key">
-      <dt>{{ idx + 1 }}. {{ key }}</dt>
-      <dd>{{ val }}</dd>
-    </template>
-  </dl>
+  <ul>
+    <li v-for="r in 5" :key="r">
+      반지름이 {{ r }} 인 원의 둘레 길이: {{ 2 * r * Math.PI }}
+    </li>
+  </ul>
 </template>
-
-<script setup lang="ts">
-const cocktailRef = ref({
-  id: 2345,
-  name: "White Lady",
-  price: 1200,
-  recipe: "진 30ml + 쿠앵트로 15ml + 레몬과즙 15ml",
-});
-</script>
