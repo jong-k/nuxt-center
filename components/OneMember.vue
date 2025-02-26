@@ -24,9 +24,7 @@ interface Props {
 }
 
 const props = defineProps<Props>();
-// const memberList = inject("memberList") as Map<number, Member>;
 const memberListRef = inject<Ref<{ [key: number]: Member }>>("memberListRef", ref({}));
-// const member = computed(() => memberList.get(props.id) as Member);
 const member = computed(() => memberListRef.value[props.id]);
 const localNote = computed(() => {
   let localNote = member.value.note;
