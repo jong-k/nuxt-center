@@ -1,25 +1,28 @@
 <template>
-  <BaseSection />
+  <p>컴포넌트명: {{ currentCompName }}</p>
+  <KeepAlive>
+    <component :is="currentComp" />
+  </KeepAlive>
+  <button @click="switchComp">바꾸기</button>
 </template>
 
 <script setup lang="ts">
-import type { Member } from "~/interfaces";
-import BaseSection from "~/components/BaseSection.vue";
+import AppInput from "~/components/AppInput.vue";
+import AppRadio from "~/components/AppRadio.vue";
+import AppSelect from "~/components/AppSelect.vue";
 
-const memberListRef = ref({
-  33456: {
-    id: 33456,
-    name: "소희",
-    email: "abc@sample.com",
-    points: 35,
-    note: "신규 가입 특전",
-  },
-  47783: {
-    id: 47783,
-    name: "채영",
-    email: "def@sample.com",
-    points: 53,
-  },
-});
-provide("memberListRef", memberListRef as Ref<{ [key: number]: Member }>);
+const currentComp = ref(AppInput);
+const currentCompName = ref("Input");
+const compList = [AppInput, AppRadio, AppSelect];
+const compNameList = ["AppInput", "AppRadio", "AppSelect"];
+const currentCompIndex = ref(0);
+
+const switchComp = () => {
+  currentCompIndex.value += 1;
+  if (currentCompIndex.value >= 3) {
+    currentCompIndex.value = 0;
+  }
+  currentComp.value = compList[currentCompIndex.value];
+  currentCompName.value = compNameList[currentCompIndex.value];
+};
 </script>
